@@ -14,7 +14,7 @@ export class TodoListItemComponent {
 
   onRichiestaCompletamento = output<number>();
 
-  richiediCompletamento() {
+  richiediCompletamento() { //genero evento
     if (this.todo) {
       this.onRichiestaCompletamento.emit(this.todo.id);
     }

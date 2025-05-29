@@ -2,7 +2,11 @@
   @for(t of todos; track $index){
   <app-todo-list-item
     [todo]="t"
+    (onRichiestaCompletamento)="completa($event)"
     class="list-group-item list-group-numbered"
   ></app-todo-list-item>
   }
 </div>
+<app-todo-add
+  (onRichiestaInserimento)="inserisciNuovoTodo($event)"
+></app-todo-add>
