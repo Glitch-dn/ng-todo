@@ -1,5 +1,4 @@
 import { Component, output } from '@angular/core';
-import { Todo } from '../../models/todo';
 import { FormsModule } from '@angular/forms';
 
 @Component({

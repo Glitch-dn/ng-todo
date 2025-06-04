@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Todo } from '../../models/todo';
-import { TODOS } from '../../data/todos';
 import { TodoListItemComponent } from '../todo-list-item/todo-list-item.component';
 import { TodoAddComponent } from "../todo-add/todo-add.component";
+import { TodoService } from '../../services/todo.service';
 
 
 @Component({
@@ -12,12 +12,17 @@ import { TodoAddComponent } from "../todo-add/todo-add.component";
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent implements OnInit {
-richiediCompletamento($event: number) {
-throw new Error('Method not implemented.');
-}
+
+  //alternativa 1 per richiedere un servizio in un componente
+  //constructor(private todoService: TodoService) { }
+
+  //alternativa 2 per richiedere un servizio in un componente
+  todoService: TodoService = inject(TodoService);
+  
   todos: Todo[] = [];
+  
   ngOnInit(): void {
-    this.todos = TODOS; //qui ci sara la richiesta AJAX
+    this.todos = this.todoService.getTodos(); //qui ci sara la richiesta AJAX
   }
 
   completa(id:number){
