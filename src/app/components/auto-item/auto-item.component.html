@@ -1,1 +1,12 @@
-<p>auto-item works!</p>
+<div
+  *ngIf="auto"
+  class="card p-3 shadow-sm"
+  style="width: 250px; min-height: 190px"
+>
+  <h2>{{ auto.marca }}</h2>
+  <h5>{{ auto.modello }}</h5>
+  <p>{{ auto.prezzo | currency : "€" }}</p>
+  <button type="button" class="btn btn-warning" (click)="aggiungiAlCarrello()">
+    Aggiungi al carrello
+  </button>
+</div>
