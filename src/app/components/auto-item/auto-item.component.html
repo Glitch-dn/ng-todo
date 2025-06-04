@@ -1,12 +1,16 @@
-<div
-  *ngIf="auto"
-  class="card p-3 shadow-sm"
-  style="width: 250px; min-height: 190px"
->
-  <h2>{{ auto.marca }}</h2>
-  <h5>{{ auto.modello }}</h5>
-  <p>{{ auto.prezzo | currency : "€" }}</p>
-  <button type="button" class="btn btn-warning" (click)="aggiungiAlCarrello()">
-    Aggiungi al carrello
-  </button>
+<div *ngIf="auto" class="card shadow-sm p-2" style="width: 250px">
+  <div>
+    <h2>{{ auto.marca }}</h2>
+    <h5>{{ auto.modello }}</h5>
+    <p>{{ auto.prezzo | currency : "€" }}</p>
+  </div>
+  <div style="text-align: center" class="p-4">
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="aggiungiAlCarrello()"
+    >
+      Aggiungi al carrello
+    </button>
+  </div>
 </div>
