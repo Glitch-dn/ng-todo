@@ -1,9 +1,29 @@
 <div class="container my-5">
-  <div class="btn-group gap-2" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-warning">Todo</button>
-    <button type="button" class="btn btn-warning">Auto</button>
+  <div class="btn-group gap-2 mb-3" role="group" aria-label="Basic example">
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="sectionChange('todo')"
+    >
+      Todo
+    </button>
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="sectionChange('auto')"
+    >
+      Auto
+    </button>
   </div>
-  <app-auto-list></app-auto-list>
-  <h1>Todo List</h1>
-  <app-todo-list></app-todo-list>
+  @if(selectedSection === 'auto'){
+  <section>
+    <h1>Auto List</h1>
+    <app-auto-list></app-auto-list>
+  </section>
+  } @else if(selectedSection === 'todo') {
+  <section>
+    <h1>Todo List</h1>
+    <app-todo-list></app-todo-list>
+  </section>
+  }
 </div>
